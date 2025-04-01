@@ -61,6 +61,55 @@ pip3 install -r requirements.txt
 python3 -m pip install -e .
 ```
 
+For LRZ:
+
+```bash
+conda create -n ape_env python=3.8 -y
+python -m pip install pip==24.0
+pip install torch==1.12.1+cu116 torchvision==0.13.1+cu116 torchaudio==0.12.1 --extra-index-url https://download.pytorch.org/whl/cu116
+conda install ninja
+pip3 install -r requirements.txt w/o torch
+
+Because the login node has limited memory,  install ape on a compute node:
+salloc --partition=mcml-hgx-a100-80x4-mig --nodes=1 --time 24:00:00  --gres=gpu:1 --qos=mcml --no-shell
+srun --pty --overlap --jobid 5096881 bash
+python3 -m pip install -e .
+
+```
+
+For DBS:
+
+```bash
+conda create -n ape_env python=3.8 -y
+
+python -m pip install pip==24.0
+
+pip3 install torch==1.12.1 torchvision torchaudio --extra-index-url https://download.pytorch.org/whl/cu113 --upgrade
+
+pip3 install transformers==4.32.1
+
+Pip install ninja
+
+pip3 install git+https://github.com/facebookresearch/detectron2@017abbf
+
+
+pip3 install cython opencv-python scipy einops lvis fairscale
+
+pip3 install git+https://github.com/IDEA-Research/detrex@776058e
+
+pip3 install git+https://github.com/openai/CLIP.git@d50d76d
+
+cd APE
+python3 -m pip install -e .
+
+```
+
+For ALL:
+
+pip install drecord
+wget https://huggingface.co/shenyunhang/APE/resolve/main/configs/LVISCOCOCOCOSTUFF_O365_OID_VGR_SA1B_REFCOCO_GQA_PhraseCut_Flickr30k/ape_deta/ape_deta_vitl_eva02_clip_vlf_lsj1024_cp_16x4_1080k_mdl_20230829_162438/model_final.pth -> 
+/nfs/data8/hannan/stream_agent/APE 
+srun -pmajor --gres=gpu:1 python demo/ape_service.py
 
 ## :arrow_forward: Demo Localy
 
