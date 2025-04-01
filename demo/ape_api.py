@@ -19,8 +19,8 @@ warnings.filterwarnings("ignore")
 
 def setup_cfg():
     # load config from file and command-line arguments
-    config_file = "/home/stud/hannan/APE/configs/LVISCOCOCOCOSTUFF_O365_OID_VGR_SA1B_REFCOCO_GQA_PhraseCut_Flickr30k/ape_deta/ape_deta_vitl_eva02_clip_vlf_lsj1024_cp_16x4_1080k.py"
-    opts = ['train.init_checkpoint=/nfs/data8/hannan/stream_agent/APE/model_final.pth', 'model.model_language.cache_dir=', 'model.model_vision.select_box_nums_for_evaluation=500', 'model.model_vision.text_feature_bank_reset=True', 'model.model_vision.backbone.net.xattn=False']
+    config_file = "/dss/dsshome1/01/ra75gan3/Video-RAG/APE/configs/LVISCOCOCOCOSTUFF_O365_OID_VGR_SA1B_REFCOCO_GQA_PhraseCut_Flickr30k/ape_deta/ape_deta_vitl_eva02_clip_vlf_lsj1024_cp_16x4_1080k.py"
+    opts = ['train.init_checkpoint=/dss/dssmcmlfs01/pn39qo/pn39qo-dss-0000/ra75gan/context/Video_RAG/APE/model_final.pth', 'model.model_language.cache_dir=', 'model.model_vision.select_box_nums_for_evaluation=500', 'model.model_vision.text_feature_bank_reset=True', 'model.model_vision.backbone.net.xattn=False']
     cfg = LazyConfig.load(config_file)
     cfg = LazyConfig.apply_overrides(cfg, opts)
     confidence_threshold = 0.1

@@ -31,6 +31,7 @@ def _rescan_model_configs():
 
     config_ext = ('.json',)
     config_files = []
+    print('_MODEL_CONFIGS', _MODEL_CONFIG_PATHS)
     for config_path in _MODEL_CONFIG_PATHS:
         if config_path.is_file() and config_path.suffix in config_ext:
             config_files.append(config_path)
