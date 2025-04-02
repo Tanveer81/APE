@@ -225,3 +225,6 @@ model.model_vision.dataset_metas = dataloader.train.dataset.names + ["refcoco-mi
 
 train.output_dir = "output/" + __file__[:-3]
 model.model_vision.vis_period = 5120
+
+model.model_vision.transformer.encoder.pytorch_attn=True
+model.model_vision.transformer.decoder.pytorch_attn=True

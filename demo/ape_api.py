@@ -31,7 +31,7 @@ def setup_cfg():
         cfg.model.model_vision.output_dir = cfg.train.output_dir
     if "train" in cfg.dataloader:
         if isinstance(cfg.dataloader.train, abc.MutableSequence):
-            for i in range(len(cfg.dataloader.train)):
+            for ix in range(len(cfg.dataloader.train)):
                 if "output_dir" in cfg.dataloader.train[i].mapper:
                     cfg.dataloader.train[i].mapper.output_dir = cfg.train.output_dir
         else:
